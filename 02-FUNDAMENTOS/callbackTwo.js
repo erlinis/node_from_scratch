@@ -61,4 +61,4 @@ var employee = getEmployee(3, (error, employeeFound) => {
   });
 });
 
-
+// The issue with callback is that they are hard to mantaince when you have more that one acton to call
