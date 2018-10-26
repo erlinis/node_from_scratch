@@ -23,27 +23,24 @@ let salaries = [
   { id: 2, salary: 3000 }
 ];
 
-let getEmployee = (id) => {
-  return new Promise ( (resolve, reject) => {
-    let employeeDB = employees.find( employee => employee.id === id )
-    if(employeeDB){
-      resolve(employeeDB);
-    } else {
-      reject(`There's no employee with id ${id}`);
-    }
-  });
+let getEmployee = async (id) => {
+  let employee  = employees.find( emp => emp.id === id )
+
+  if(employee){
+    return employee;
+  } else {
+    throw new Error(`There's no employee with id ${id}`);
+  }
 }
 
-let getSalary = (employee) => {
-  return new Promise ( (resolve, reject) => {
-    let salary = salaries.find( salary => salary.id === employee.id);
+let getSalary = async (employee) => {
+  let salary = salaries.find( salary => salary.id === employee.id);
 
-    if(salary){
-      resolve({ name: employee.name, salary: salary.salary });
-    } else {
-      reject(`None salary for the employe ${employee.name} was found`);
-    }
-  });
+  if(salary){
+    return { name: employee.name, salary: salary.salary };
+  } else {
+    throw new Error(`None salary for the employe ${employee.name} was found`);
+  }
 }
 
 let getEmployeeInfo = async(id) => {
@@ -54,7 +51,7 @@ let getEmployeeInfo = async(id) => {
 }
 
 
-getEmployeeInfo(10)
+getEmployeeInfo(1)
   .then(msg => console.log(msg))
   .catch(error => console.log(error));
 
