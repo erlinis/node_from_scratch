@@ -50,8 +50,6 @@ var employee = getEmployee(3, (error, employeeFound) => {
     return console.log('Error:', error);
   }
 
-   console.log('Employee', employeeFound);
-
    getSalary(employeeFound, (error, salaryFound) => {
     if(error){
       return console.log('Error:', error);
