@@ -22,10 +22,13 @@ let writeMultiplicationTableOnFile = async(data, base) => {
 }
 
 let createMultiplicationTable = async(base) => {
-  let data = await buildMultiplicationTable(base);
-  let filename = await writeMultiplicationTableOnFile(data, base);
-  console.log("createMultiplicationTable data:",filename);
-  return filename;
+  if (!Number(base)){
+     throw new Error(`The base value: '${base}' is not a number`);
+  } else {
+    let data = await buildMultiplicationTable(base);
+    let filename = await writeMultiplicationTableOnFile(data, base);
+    return filename;
+  }
 }
 
 module.exports = {
