@@ -6,32 +6,8 @@
  */
 
 const {createTable, listTable} = require('./multiply/multiply');
-
-const argv = require('yargs')
-  .command('list', 'Prints the multiplication table of a given base', {
-    base: {
-      demand: true,
-      alias: 'b'
-    },
-    limit: {
-      alias: 'l',
-      default: 10
-    }
-  })
-  .command('create', 'Create the multiplication table of a given base and until the given limit, default 10.', {
-    base: {
-      demand: true,
-      alias: 'b'
-    },
-    limit: {
-      alias: 'l',
-      default: 10
-    }
-  })
-  .help()
-  .argv;
-
-//console.log(argv);
+const {argv} = require('./config/yargs');
+var colors = require('colors/safe');
 
 let command = argv._[0];
 
@@ -50,7 +26,7 @@ switch (command) {
     var limit = argv.limit;
 
     createTable(base, limit)
-     .then(filename => console.log(`File ${filename} created`))
+     .then(filename => console.log(`File ${colors.yellow(filename)} created`))
      .catch(e => console.log(e));
   break;
 

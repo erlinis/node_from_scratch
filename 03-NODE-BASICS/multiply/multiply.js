@@ -1,4 +1,6 @@
 const fs = require('fs');
+const colors = require('colors');
+
 
 let buildMultiplicationTable = (base, limit) => {
   return new Promise((resolve, reject) => {
@@ -43,6 +45,9 @@ let listTableFile = async(base, limit) => {
 }
 
 let listTable = async(base, limit) => {
+  console.log('========================='.yellow);
+  console.log(`Table of ${base} from 1 to ${limit}`.yellow);
+  console.log('========================='.yellow);
   return buildMultiplicationTable(base, limit);
 }
 
