@@ -24,7 +24,8 @@ switch(command) {
 
 
   case 'update':
-    console.log('updates a todo task');
+    let updated = todo_commands.update(argv.description, argv.completed);
+    console.log(`Task updated?: ${colors.red(updated)}`);
   break;
 
   default:

@@ -37,8 +37,22 @@ const list = () =>{
   return loadData();
 }
 
+const update = (description, completed) =>{
+  let todoList = list();
+
+  let index = todoList.findIndex(task => task.description === description);
+
+  if (index >=0) {
+    todoList[index].completed = completed;
+    saveData(todoList);
+    return true;
+  }
+  return false;
+}
+
 
 module.exports = {
   create,
-  list
+  list,
+  update
 }
