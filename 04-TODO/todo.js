@@ -1,10 +1,12 @@
 const {argv} = require('./config/yargs');
+const todo_commands = require('./todo/todo_commands');
 
 let command = argv._[0];
 
 switch(command) {
   case 'create':
-    console.log('creates a todo task');
+    let task = todo_commands.create(argv.description);
+    console.log('creates a todo task: ', task);
   break;
 
   case 'list':
