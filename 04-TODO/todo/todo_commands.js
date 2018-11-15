@@ -4,7 +4,6 @@ const saveData = (list) =>{
   let data = JSON.stringify(list);
   fs.writeFile('db/data.json', data, (err) => {
     if (err) throw new Error('Could not save the data');
-    console.log('The file has been saved!');
   });
 }
 
@@ -34,7 +33,12 @@ const create = (description) => {
   return task;
 }
 
+const list = () =>{
+  return loadData();
+}
+
 
 module.exports = {
-  create
+  create,
+  list
 }
