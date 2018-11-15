@@ -28,6 +28,12 @@ switch(command) {
     console.log(`Task updated?: ${colors.red(updated)}`);
   break;
 
+  case 'delete':
+    let deleted = todo_commands.destroy(argv.description);
+    console.log(`Task deleted?: ${colors.red(deleted)}`);
+  break;
+
+
   default:
     console.log('Invalid command');
   break;

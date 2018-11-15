@@ -38,7 +38,7 @@ const list = () =>{
 }
 
 const update = (description, completed) =>{
-  let todoList = list();
+  let todoList = loadData();
 
   let index = todoList.findIndex(task => task.description === description);
 
@@ -50,9 +50,21 @@ const update = (description, completed) =>{
   return false;
 }
 
+const destroy = (description) => {
+  let todoList = loadData();
+
+  let filteredList = todoList.filter(task => task.description !== description);
+
+  if (filteredList.length !== todoList.length) {
+    saveData(filteredList);
+    return true;
+  }
+  return false;
+}
 
 module.exports = {
   create,
   list,
-  update
+  update,
+  destroy
 }

@@ -4,7 +4,6 @@ const description = {
   description: 'Short explanation of the task'
 }
 
-
 const completed = {
   default: true,
   alias: 'c',
@@ -15,6 +14,8 @@ const completed = {
 const argv = require('yargs')
             .command('create','Creates a ToDo task', {description})
             .command('update','Updates the task status', {description, completed })
+            .command('delete','Deletes a ToDo task', {description})
+            .command('list','Displays all ToDo tasks', {})
             .help()
             .argv;
 
