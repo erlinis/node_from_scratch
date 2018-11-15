@@ -24,7 +24,7 @@ const create = (description) => {
 
   let task = {
     description: description,
-    completed: false
+    completed: "false"
   }
 
   todoList.push(task);
@@ -33,8 +33,14 @@ const create = (description) => {
   return task;
 }
 
-const list = () =>{
-  return loadData();
+const list = (statusFilter) => {
+  let todoList = loadData();
+
+  if (statusFilter != undefined) {
+    let filteredList = todoList.filter(task => task.completed === statusFilter);
+    return filteredList;
+  }
+  return todoList;
 }
 
 const update = (description, completed) =>{

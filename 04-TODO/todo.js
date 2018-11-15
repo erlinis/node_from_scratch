@@ -12,7 +12,7 @@ switch(command) {
   break;
 
   case 'list':
-    let todoList = todo_commands.list();
+    let todoList = todo_commands.list(argv.completed);
     console.log('======= To DO ======='.green);
 
     for (let task of todoList){
