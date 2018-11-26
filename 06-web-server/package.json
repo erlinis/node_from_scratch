@@ -4,6 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
+    "nodemon-server": "node server.js -e js,hbs,css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Erlinis Quintana",

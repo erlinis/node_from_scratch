@@ -2,32 +2,26 @@ const express = require('express')
 const app = express();
 const hbs = require('hbs');
 
+require('./hbs/helpers');
+
+const port = process.env.PORT || 3000;
+
 app.use(express.static(__dirname + '/public'));
 
+// Express HBS Engine
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/', (req, res) => {
   res.render('home', {
-    user: 'Erlinis',
-    year: new Date().getFullYear()
+    user: 'Erlinis'
   });
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', {
-    year: new Date().getFullYear()
-  });
+  res.render('about');
 });
 
-app.get('/data', function (req, res) {
-  let output = {
-    name: 'Erlinis',
-    lastname: 'Quintana',
-    age: 31,
-    technologies: 'Ruby, RoR, Javascript, Node'
-  }
-
-  res.send(output);
+app.listen(port, () =>{
+  console.log(`Listening in port ${port}`);
 });
-app.listen(3000);
