@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "10.12.0",
+    "npm": "6.4.1",
+    "yarn": "1.10.1"
+  },
   "scripts": {
     "start": "node server.js",
     "nodemon-server": "node server.js -e js,hbs,css",
